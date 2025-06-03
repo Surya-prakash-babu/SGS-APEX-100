@@ -33,18 +33,18 @@ prompt APPLICATION 100 - DTB Demo Application
 -- Application Export:
 --   Application:     100
 --   Name:            DTB Demo Application
---   Date and Time:   19:07 Tuesday June 3, 2025
+--   Date and Time:   19:30 Tuesday June 3, 2025
 --   Exported By:     DTB_ADMIN
 --   Flashback:       0
 --   Export Type:     Application Export
 --     Pages:                     79
---       Items:                  369
+--       Items:                  362
 --       Computations:             3
 --       Validations:             22
 --       Processes:              106
---       Regions:                256
---       Buttons:                191
---       Dynamic Actions:        108
+--       Regions:                250
+--       Buttons:                190
+--       Dynamic Actions:        106
 --     Shared Components:
 --       Logic:
 --         Items:                  6
@@ -122,7 +122,7 @@ wwv_imp_workspace.create_flow(
 ,p_substitution_value_02=>'shyam@seertree.com'
 ,p_file_prefix => nvl(wwv_flow_application_install.get_static_app_file_prefix,'')
 ,p_files_version=>11
-,p_version_scn=>44832636456401
+,p_version_scn=>44832695050627
 ,p_print_server_type=>'NATIVE'
 ,p_file_storage=>'DB'
 ,p_is_pwa=>'Y'
@@ -6649,7 +6649,6 @@ wwv_flow_imp_page.create_page_plug(
 ,p_plug_display_point=>'REGION_POSITION_01'
 ,p_location=>null
 ,p_plug_query_num_rows=>15
-,p_required_patch=>wwv_flow_imp.id(8005602036327620)
 ,p_region_image=>'#APP_FILES#icons/app-icon-512.png'
 ,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
   'expand_shortcuts', 'N',
@@ -6710,7 +6709,6 @@ wwv_flow_imp_page.create_page_plug(
 ,p_prn_page_header_alignment=>'CENTER'
 ,p_prn_page_footer_alignment=>'CENTER'
 ,p_prn_border_color=>'#666666'
-,p_required_patch=>wwv_flow_imp.id(8005602036327620)
 );
 wwv_flow_imp_page.create_worksheet(
  p_id=>wwv_flow_imp.id(19400857571648916)
@@ -6810,92 +6808,6 @@ wwv_flow_imp_page.create_worksheet_rpt(
 ,p_is_default=>'Y'
 ,p_report_columns=>'ID:EXPIRY_IN:EXPIRY_IN_SECONDS:CREATED_AT:TIME_REMAINING:CREATED_BY:'
 );
-wwv_flow_imp_page.create_page_plug(
- p_id=>wwv_flow_imp.id(20192590012136418)
-,p_plug_name=>'Extracted Fields'
-,p_region_template_options=>'#DEFAULT#:t-Region--scrollBody:t-Form--leftLabels:margin-top-sm'
-,p_plug_template=>4072358936313175081
-,p_plug_display_sequence=>40
-,p_plug_new_grid_row=>false
-,p_location=>null
-,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
-  'expand_shortcuts', 'N',
-  'output_as', 'HTML')).to_clob
-);
-wwv_flow_imp_page.create_page_plug(
- p_id=>wwv_flow_imp.id(20192836369136421)
-,p_plug_name=>'Top-level'
-,p_parent_plug_id=>wwv_flow_imp.id(20192590012136418)
-,p_region_template_options=>'#DEFAULT#:t-Region--scrollBody'
-,p_plug_template=>4072358936313175081
-,p_plug_display_sequence=>10
-,p_location=>null
-,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
-  'expand_shortcuts', 'N',
-  'output_as', 'HTML')).to_clob
-);
-wwv_flow_imp_page.create_page_plug(
- p_id=>wwv_flow_imp.id(20193038641136423)
-,p_plug_name=>'Nested object'
-,p_parent_plug_id=>wwv_flow_imp.id(20192590012136418)
-,p_region_template_options=>'#DEFAULT#:t-Region--scrollBody'
-,p_plug_template=>4072358936313175081
-,p_plug_display_sequence=>20
-,p_location=>null
-,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
-  'expand_shortcuts', 'N',
-  'output_as', 'HTML')).to_clob
-);
-wwv_flow_imp_page.create_page_plug(
- p_id=>wwv_flow_imp.id(20193234427136425)
-,p_plug_name=>'Array item'
-,p_parent_plug_id=>wwv_flow_imp.id(20192590012136418)
-,p_region_template_options=>'#DEFAULT#:t-Region--scrollBody'
-,p_plug_template=>4072358936313175081
-,p_plug_display_sequence=>30
-,p_location=>null
-,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
-  'expand_shortcuts', 'N',
-  'output_as', 'HTML')).to_clob
-);
-wwv_flow_imp_page.create_page_plug(
- p_id=>wwv_flow_imp.id(20193558155136428)
-,p_plug_name=>'Deep nested array item'
-,p_parent_plug_id=>wwv_flow_imp.id(20192590012136418)
-,p_region_template_options=>'#DEFAULT#:t-Region--scrollBody'
-,p_plug_template=>4072358936313175081
-,p_plug_display_sequence=>40
-,p_location=>null
-,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
-  'expand_shortcuts', 'N',
-  'output_as', 'HTML')).to_clob
-);
-wwv_flow_imp_page.create_page_plug(
- p_id=>wwv_flow_imp.id(20193761608136430)
-,p_plug_name=>'Optional field (null-safe)'
-,p_parent_plug_id=>wwv_flow_imp.id(20192590012136418)
-,p_region_template_options=>'#DEFAULT#:t-Region--scrollBody'
-,p_plug_template=>4072358936313175081
-,p_plug_display_sequence=>50
-,p_location=>null
-,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
-  'expand_shortcuts', 'N',
-  'output_as', 'HTML')).to_clob
-);
-wwv_flow_imp_page.create_page_button(
- p_id=>wwv_flow_imp.id(20192487759136417)
-,p_button_sequence=>20
-,p_button_name=>'Get_Stripe_Info'
-,p_button_action=>'DEFINED_BY_DA'
-,p_button_template_options=>'#DEFAULT#:t-Button--large:t-Button--iconLeft:t-Button--stretch:t-Button--padTop'
-,p_button_template_id=>2082829544945815391
-,p_button_is_hot=>'Y'
-,p_button_image_alt=>'Get Stripe Info'
-,p_warn_on_unsaved_changes=>null
-,p_icon_css_classes=>'fa-lg fa-network-hub'
-,p_grid_new_row=>'N'
-,p_grid_new_column=>'Y'
-);
 wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(16628716066400317)
 ,p_name=>'P1_KUBER_SESSION_ID'
@@ -6913,132 +6825,6 @@ wwv_flow_imp_page.create_page_item(
   'format', 'PLAIN',
   'send_on_page_submit', 'Y',
   'show_line_breaks', 'Y')).to_clob
-);
-wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(19402032293648928)
-,p_name=>'P1_STRIPE_RESPONSE'
-,p_item_sequence=>30
-,p_use_cache_before_default=>'NO'
-,p_prompt=>'STRIPE RESPONSE'
-,p_source=>'DTB_ACCESS_TOKEN'
-,p_source_type=>'ITEM'
-,p_display_as=>'NATIVE_TEXTAREA'
-,p_cSize=>30
-,p_cHeight=>45
-,p_colspan=>4
-,p_field_template=>1609121967514267634
-,p_item_template_options=>'#DEFAULT#'
-,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
-  'auto_height', 'N',
-  'character_counter', 'Y',
-  'resizable', 'N',
-  'trim_spaces', 'BOTH')).to_clob
-);
-wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(19402315283648931)
-,p_name=>'P1_ID'
-,p_item_sequence=>10
-,p_item_plug_id=>wwv_flow_imp.id(20192836369136421)
-,p_use_cache_before_default=>'NO'
-,p_prompt=>'Id'
-,p_display_as=>'NATIVE_TEXTAREA'
-,p_cSize=>30
-,p_cHeight=>50
-,p_begin_on_new_line=>'N'
-,p_field_template=>1609121967514267634
-,p_item_template_options=>'#DEFAULT#'
-,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
-  'auto_height', 'N',
-  'character_counter', 'N',
-  'resizable', 'Y',
-  'trim_spaces', 'BOTH')).to_clob
-);
-wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(20192900403136422)
-,p_name=>'P1_REASON'
-,p_item_sequence=>20
-,p_item_plug_id=>wwv_flow_imp.id(20192836369136421)
-,p_use_cache_before_default=>'NO'
-,p_prompt=>'Reson'
-,p_display_as=>'NATIVE_TEXTAREA'
-,p_cSize=>30
-,p_cHeight=>5
-,p_begin_on_new_line=>'N'
-,p_field_template=>1609121967514267634
-,p_item_template_options=>'#DEFAULT#'
-,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
-  'auto_height', 'N',
-  'character_counter', 'N',
-  'resizable', 'Y',
-  'trim_spaces', 'BOTH')).to_clob
-);
-wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(20193156628136424)
-,p_name=>'P1_CARD_BRAND'
-,p_item_sequence=>10
-,p_item_plug_id=>wwv_flow_imp.id(20193038641136423)
-,p_use_cache_before_default=>'NO'
-,p_prompt=>'Card Brand'
-,p_display_as=>'NATIVE_TEXT_FIELD'
-,p_cSize=>30
-,p_field_template=>1609121967514267634
-,p_item_template_options=>'#DEFAULT#'
-,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
-  'disabled', 'N',
-  'submit_when_enter_pressed', 'N',
-  'subtype', 'TEXT',
-  'trim_spaces', 'BOTH')).to_clob
-);
-wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(20193380783136426)
-,p_name=>'P1_BALANCE_DESCRIPTION'
-,p_item_sequence=>10
-,p_item_plug_id=>wwv_flow_imp.id(20193234427136425)
-,p_use_cache_before_default=>'NO'
-,p_prompt=>'Balance Description'
-,p_display_as=>'NATIVE_TEXT_FIELD'
-,p_cSize=>35
-,p_field_template=>1609121967514267634
-,p_item_template_options=>'#DEFAULT#'
-,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
-  'disabled', 'N',
-  'submit_when_enter_pressed', 'N',
-  'subtype', 'TEXT',
-  'trim_spaces', 'BOTH')).to_clob
-);
-wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(20193635410136429)
-,p_name=>'P1_FEE_AMOUNT'
-,p_item_sequence=>10
-,p_item_plug_id=>wwv_flow_imp.id(20193558155136428)
-,p_use_cache_before_default=>'NO'
-,p_prompt=>'Fee Amount'
-,p_display_as=>'NATIVE_TEXT_FIELD'
-,p_cSize=>30
-,p_field_template=>1609121967514267634
-,p_item_template_options=>'#DEFAULT#'
-,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
-  'disabled', 'N',
-  'submit_when_enter_pressed', 'N',
-  'subtype', 'TEXT',
-  'trim_spaces', 'BOTH')).to_clob
-);
-wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(20193827005136431)
-,p_name=>'P1_CUSTOMER_EMAIL'
-,p_item_sequence=>10
-,p_item_plug_id=>wwv_flow_imp.id(20193761608136430)
-,p_use_cache_before_default=>'NO'
-,p_prompt=>'Customer Email'
-,p_display_as=>'NATIVE_TEXT_FIELD'
-,p_cSize=>30
-,p_field_template=>1609121967514267634
-,p_item_template_options=>'#DEFAULT#'
-,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
-  'disabled', 'N',
-  'submit_when_enter_pressed', 'N',
-  'subtype', 'TEXT',
-  'trim_spaces', 'BOTH')).to_clob
 );
 wwv_flow_imp_page.create_page_da_event(
  p_id=>wwv_flow_imp.id(19402400943648932)
@@ -7063,179 +6849,6 @@ wwv_flow_imp_page.create_page_da_action(
 ,p_attribute_01=>'Stripre API failed! '
 ,p_attribute_03=>'danger'
 ,p_attribute_04=>'fa-lg fa-exclamation-circle'
-);
-wwv_flow_imp_page.create_page_da_event(
- p_id=>wwv_flow_imp.id(19402687708648934)
-,p_name=>'Oauth'
-,p_event_sequence=>20
-,p_bind_type=>'bind'
-,p_execution_type=>'IMMEDIATE'
-,p_bind_event_type=>'ready'
-,p_required_patch=>wwv_flow_imp.id(8005602036327620)
-);
-wwv_flow_imp_page.create_page_da_action(
- p_id=>wwv_flow_imp.id(19402733677648935)
-,p_event_id=>wwv_flow_imp.id(19402687708648934)
-,p_event_result=>'TRUE'
-,p_action_sequence=>10
-,p_execute_on_page_init=>'N'
-,p_action=>'NATIVE_EXECUTE_PLSQL_CODE'
-,p_attribute_01=>wwv_flow_string.join(wwv_flow_t_varchar2(
-'DECLARE',
-'    l_response         CLOB;',
-'    l_parameters       APEX_EXEC.T_PARAMETERS;',
-'    l_client_id        VARCHAR2(250);',
-'    l_client_secret    VARCHAR2(250);',
-'    l_rest_static_id   VARCHAR2(25) := ''bc_oauth''; -- Your REST Data Source static ID',
-'    l_http_status_code NUMBER;',
-'    l_access_token     VARCHAR2(4000);',
-'BEGIN',
-'',
-'    apex_debug.enable;',
-'    -- Get client credentials',
-'    SELECT CLIENT_ID, CLIENT_SECRET',
-'      INTO l_client_id, l_client_secret',
-'      FROM OAUTH_CREDENTIALS',
-'     WHERE TYPE = ''BC'';',
-'',
-'    -- Add input parameters',
-'    APEX_EXEC.add_parameter(',
-'        p_parameters => l_parameters, ',
-'        p_name       => ''client_id'', ',
-'        p_value      => l_client_id',
-'    );',
-'',
-'    APEX_EXEC.add_parameter(',
-'        p_parameters => l_parameters, ',
-'        p_name       => ''client_secret'', ',
-'        p_value      => l_client_secret   ',
-'    );',
-'',
-'    -- Execute REST POST',
-'    APEX_EXEC.EXECUTE_REST_SOURCE(',
-'        p_static_id  => l_rest_static_id,',
-'        p_operation  => ''POST'', ',
-'        p_parameters => l_parameters',
-'    );',
-'',
-'    -- Fetch response',
-'    l_response := APEX_EXEC.get_parameter_clob(',
-'        p_parameters => l_parameters,',
-'        p_name       => ''response''  -- Ensure this is the correct output parameter',
-'    );',
-'',
-'    :P1_RESPONSE := l_response;',
-'',
-'    apex_debug.message(''API Response: ''|| l_response);',
-'',
-'    -- Check HTTP status',
-'    l_http_status_code := APEX_WEB_SERVICE.g_status_code;',
-'',
-'    IF l_http_status_code = 200 OR l_http_status_code = 201 THEN',
-'        apex_json.parse(l_response);',
-'        l_access_token := apex_json.get_varchar2(p_path => ''access_token'');',
-'		:P1_ACCESS_TOKEN := l_access_token;',
-'        apex_debug.message(''Access Token: ''|| l_access_token);',
-'    ELSE',
-'        l_access_token := 0;',
-'		:P1_ACCESS_TOKEN := l_access_token;',
-'        :P1_RESPONSE := ''Authorization failed: '' || l_response;',
-'    END IF;',
-'',
-'EXCEPTION',
-'    WHEN OTHERS THEN',
-'        l_access_token := 0;',
-'		:P1_ACCESS_TOKEN := l_access_token;',
-'        :P1_RESPONSE := ''Authorization failed: '' || SQLERRM;',
-'END;',
-''))
-,p_attribute_03=>'P1_STRIPE_RESPONSE,P1_ID'
-,p_attribute_04=>'N'
-,p_attribute_05=>'PLSQL'
-,p_wait_for_result=>'Y'
-);
-wwv_flow_imp_page.create_page_da_event(
- p_id=>wwv_flow_imp.id(20192652719136419)
-,p_name=>'StepeAPI'
-,p_event_sequence=>30
-,p_triggering_element_type=>'BUTTON'
-,p_triggering_button_id=>wwv_flow_imp.id(20192487759136417)
-,p_bind_type=>'bind'
-,p_execution_type=>'IMMEDIATE'
-,p_bind_event_type=>'click'
-);
-wwv_flow_imp_page.create_page_da_action(
- p_id=>wwv_flow_imp.id(20192707922136420)
-,p_event_id=>wwv_flow_imp.id(20192652719136419)
-,p_event_result=>'TRUE'
-,p_action_sequence=>10
-,p_execute_on_page_init=>'N'
-,p_action=>'NATIVE_EXECUTE_PLSQL_CODE'
-,p_attribute_01=>wwv_flow_string.join(wwv_flow_t_varchar2(
-'DECLARE ',
-'	l_http_status_code  NUMBER; -- Variable to hold HTTP status code',
-'	l_response 		    CLOB;',
-'	l_parameters 		APEX_EXEC.T_PARAMETERS;',
-'	l_rest_static_id 	VARCHAR2(25) := ''stripe_records'';',
-'	',
-'BEGIN',
-'    apex_debug.enable; -- Enable debug messages',
-'    apex_debug.message(''Starting STRIPE INFOMATION Flow'');',
-'',
-'	-- Execute REST GET',
-'	APEX_EXEC.EXECUTE_REST_SOURCE(',
-'		p_static_id  => l_rest_static_id,',
-'		p_operation  => ''GET'', ',
-'		p_parameters => l_parameters',
-'	);',
-'',
-'	-- Fetch response',
-'	l_response := APEX_EXEC.get_parameter_clob(',
-'		p_parameters => l_parameters,',
-'		p_name       => ''response''  -- Ensure this is the correct output parameter',
-'	);',
-'	',
-'	apex_debug.message(''STRIPE Response: '' || l_response);',
-'	apex_debug.message(''HTTP Status Code: '' || APEX_WEB_SERVICE.g_status_code);',
-'	',
-'	:P1_STRIPE_RESPONSE := l_response;',
-'',
-'    l_http_status_code := APEX_WEB_SERVICE.g_status_code;',
-'',
-'    IF l_http_status_code = 200 OR l_http_status_code = 201 THEN',
-'',
-'        apex_json.parse(l_response);',
-'',
-'        -- Top-level',
-'        :P1_ID := apex_json.get_varchar2(p_path => ''id'');',
-'        :P1_REASON := apex_json.get_varchar2(p_path => ''reason'');',
-'',
-'        -- Nested object',
-'        :P1_CARD_BRAND := apex_json.get_varchar2(p_path => ''payment_method_details.card.brand'');',
-'',
-'        -- Array item',
-'        :P1_BALANCE_DESCRIPTION := apex_json.get_varchar2(p_path => ''balance_transactions[1].description'');',
-'',
-'        -- Deep nested array item',
-'        :P1_FEE_AMOUNT := apex_json.get_number(p_path => ''balance_transactions[1].fee_details[1].amount'');',
-'',
-'        -- Optional field (null-safe)',
-'        :P1_CUSTOMER_EMAIL := apex_json.get_varchar2(p_path => ''evidence.customer_email_address'', p0 => NULL);',
-'       ',
-'    ELSE',
-'        :P1_STRIPE_RESPONSE := 0;',
-'    END IF;',
-'		',
-'EXCEPTION',
-'    WHEN OTHERS THEN',
-'        :P1_STRIPE_RESPONSE := 0;',
-'	',
-'END;',
-''))
-,p_attribute_03=>'P1_STRIPE_RESPONSE,P1_ID,P1_CARD_BRAND,P1_BALANCE_DESCRIPTION,P1_FEE_AMOUNT,P1_CUSTOMER_EMAIL,P1_REASON'
-,p_attribute_04=>'N'
-,p_attribute_05=>'PLSQL'
-,p_wait_for_result=>'Y'
 );
 end;
 /
@@ -25650,6 +25263,7 @@ wwv_flow_imp_page.create_page_plug(
 ,p_location=>'WEB_SOURCE'
 ,p_web_src_module_id=>wwv_flow_imp.id(14228128891396890)
 ,p_array_column_id=>wwv_flow_imp.id(14289534111892139)
+,p_query_type=>'SQL'
 ,p_query_where=>'NAME is not null'
 ,p_source_post_processing=>'WHERE_ORDER_BY_CLAUSE'
 ,p_plug_source_type=>'NATIVE_IR'
@@ -26153,15 +25767,9 @@ wwv_flow_imp_page.create_page_item(
 ,p_name=>'P34_SELECTED_ID'
 ,p_item_sequence=>20
 ,p_use_cache_before_default=>'NO'
-,p_prompt=>'New'
-,p_display_as=>'NATIVE_DISPLAY_ONLY'
-,p_field_template=>1609121967514267634
-,p_item_template_options=>'#DEFAULT#'
+,p_display_as=>'NATIVE_HIDDEN'
 ,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
-  'based_on', 'VALUE',
-  'format', 'PLAIN',
-  'send_on_page_submit', 'Y',
-  'show_line_breaks', 'Y')).to_clob
+  'value_protected', 'N')).to_clob
 );
 wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(18398611189345739)
@@ -26177,6 +25785,7 @@ wwv_flow_imp_page.create_page_da_event(
 ,p_name=>'checkboxAction'
 ,p_event_sequence=>10
 ,p_bind_type=>'bind'
+,p_execution_type=>'IMMEDIATE'
 ,p_bind_event_type=>'ready'
 );
 wwv_flow_imp_page.create_page_da_action(
